@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  padding: 1rem;
+  margin: auto;
+}
+
+.main-header {
+  width: 100%;
+  height:4rem;
+  background-color: #fefefe;
+  padding: 0 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.main-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.main-header__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-header__item {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 33px;
+  padding: 5px;
+}
+
+.main-header__item a {
+  text-decoration: none;
+  color: rgb(76, 76, 76);
+}
+
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  color: #40acbd;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+}
+
+.centered {
+  text-align:center;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+}
+
+
+.card__header,
+.card__content {
+  padding: 1rem;
+}
+
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+    margin: 0 0.25rem;
+}
+
+.btn {
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
+}
+
+
+.logo-icon {
+  width: 150px;
+}
+
+.logo-image{
+  width: 500px;
+  margin-left: auto;
+ margin-right: auto;
+ 
+}
+
+.logo-search-container{
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  margin-top:280px
+}
+
+.search-bar{
+ width: 40%;
+ height: 53px;
+ margin-left: auto;
+ margin-right: 15px;
+ margin-top: 50px;
+ padding-left: 30px;
+ stroke: none;
+ border: none;
+ border-radius: 5px;
+ box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+}
+
+.search-bar-container{
+  display: flex;
+  
+}
+
+.search-button{
+  width: 80px;
+  height: 53px;
+  margin-top: 50px;
+  margin-right: auto;
+  border-radius: 5px;
+  border: none;
+  background-color: #3F63AF;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+}
+
+.search-button:hover {background-color: #4ce6e1}
+
+.search-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* patient page*/
+h1{
+  margin-left: 150px;
+  margin-top: 60px;
+}
+
+.patient-card{
+  width: 950px;
+  height: 261px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: flex;
+  border-radius: 5px;
+}
+.patient-picture{
+  margin-top: auto;
+  margin-bottom: auto;
+  width:263px;
+  height:217px;
+  background-color: #D9D9D9;
+  margin-left: 20px;
+  border-radius: 5px;
+  
+}
+
+.patient-img{
+  display: block;
+  margin: auto;
+}
+
+.patient-info{
+  margin-top: 30px;
+  margin-left: 25px;
+  width: 390px;
+}
+
+.patient-ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  margin-bottom: 20px;
+  color: #646464 ;
+}
+
+.patientDetail-button{
+  margin: auto;
+  width: 130px;
+  height: 53px;  
+  border-radius: 5px;
+  border: none;
+  background-color: #3F63AF;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+}
+
+.patientDetail-button:hover {background-color: #4ce6e1}
+
+.patientDetail-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
