@@ -1,11 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PatientCard = ({patient}) => {
+
+    const navigation = useNavigate();
 
     console.log(`patientcardddddd:${patient}`)
 
     function ageCalculator(){
 
+    }
+
+    function handleClick() {
+        console.log("clickeado papi")
+        navigation(`/patients/${patient.id}`,{ state:patient})
     }
 
     return (
@@ -23,7 +31,7 @@ const PatientCard = ({patient}) => {
             </ul>
         </section>
 
-        <button className='patientDetail-button'>Ver Detalle</button>
+        <button className='patientDetail-button'onClick={handleClick}>Ver Detalle</button>
 
         
             

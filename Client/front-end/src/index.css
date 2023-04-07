@@ -190,8 +190,15 @@ main {
 
 /* patient page*/
 h1{
-  margin-left: 150px;
+  margin-left: 237px;
   margin-top: 60px;
+  color: #646464;
+}
+
+h2{
+  margin-left: 237px;
+  margin-top: 30px;
+  color:  #646464;
 }
 
 .patient-card{
@@ -200,7 +207,7 @@ h1{
   box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   border-radius: 5px;
 }
@@ -256,4 +263,81 @@ li{
   transform: translateY(4px);
 }
 
+
+.event-section{
+  display: flex;
+  width: 1300px;
+  height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.event-detail-button{
+  margin: auto;
+  width: 130px;
+  height: 53px;  
+  border-radius: 5px;
+  border: none;
+  background-color: #3F63AF;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+
+}
+
+
+.event-detail-button:hover {background-color: #4ce6e1}
+
+.event-detail-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.create-event-button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  position: relative;
+  width: 160px;
+  height: 53px;  
+  border-radius: 5px;
+  border: none;
+  background-color: #3F63AF;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+}
+.create-event-button:hover {background-color: #4ce6e1}
+
+.create-event-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+.event-info{
+  width: 1000px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 25px;
+}
+
+
+.event-ul{
+  list-style: none;
+  
+  padding: 0;
+}
+
+
+.event-li{
+  display: inline;
+  margin-right: 150px;
+}
 
