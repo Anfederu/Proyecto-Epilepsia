@@ -19,7 +19,7 @@ const PatientCard = ({patient}) => {
     return (
         <section className='patient-card'>
         <section className="patient-picture">
-            <img className="patient-img" src='icons/patientAvatar.png'></img>
+            <img className="patient-img" src='/icons/patientAvatar.png'></img>
         </section>
         <section className='patient-info'>
             <ul className='patient-ul'>

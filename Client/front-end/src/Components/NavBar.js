@@ -5,7 +5,7 @@ const Navbar = () => {
     <header className="main-header">
     <nav className="main-header__nav">
         <ul className="main-header__item-list">
-            <img className="logo-icon" src="icons/plogo.png"></img>
+            <img className="logo-icon" src="/icons/plogo.png"></img>
             <li className="main-header__item">
                 <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
             </li>
