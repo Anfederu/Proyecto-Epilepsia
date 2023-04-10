@@ -33,7 +33,7 @@ const Patients = () => {
         <div>
             <h1>Resultados de búsqueda para  {searchInput} </h1>
                         
-            <PatientCard patient={patient}/>
+            <PatientCard patient={patient} context="listPatients"/>
         </div>
     );
 }

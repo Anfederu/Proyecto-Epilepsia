@@ -8,6 +8,7 @@ import Home from "./Pages/Home"
 import Patients from "./Pages/Patients"
 import PatientDetail from "./Pages/PatientDetail"
 import AboutUs from "./Pages/AboutUs"
+import RequestPrediction from "./Pages/RequestPrediction";
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/aboutUs" element={<AboutUs/>}/>
         <Route path="/patients" element={<Patients/>}/>
         <Route path="/patients/:id" element={<PatientDetail/>}/>
+        <Route path="/request-prediction" element={<RequestPrediction/>}/>
       </Routes>      
       </Router>
       

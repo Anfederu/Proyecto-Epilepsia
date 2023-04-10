@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const PatientCard = ({patient}) => {
+const PatientCard = ({patient,context}) => {
 
     const navigation = useNavigate();
 
@@ -31,7 +31,7 @@ const PatientCard = ({patient}) => {
             </ul>
         </section>
 
-        <button className='patientDetail-button'onClick={handleClick}>Ver Detalle</button>
+        {context === "listPatients"? <button className='patientDetail-button'onClick={handleClick}>Ver Detalle</button>: null}
 
         
             
