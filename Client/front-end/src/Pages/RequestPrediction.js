@@ -1,13 +1,14 @@
 import React from 'react';
+import RequestPredictionComponent from '../Components/RequestPredictionComponent';
+import { useLocation } from "react-router-dom";
 
 const RequestPrediction = () => {
+    const location = useLocation();
+    const patient = location.state;
     return (
-        <div >
-            <section className='request-prediction-container'>
-            holaaa soy prediction reqiest
-            <p>holaaaaaa</p>
-            <h1>holaaa gonorrrreaa</h1>
-            </section>
+        <div className='request-prediction-page'>
+            <h1>Solicitar predicción para el paciente {patient.first_name} {patient.last_name}</h1>
+            <RequestPredictionComponent patient={patient}/>
            
         </div>
     );

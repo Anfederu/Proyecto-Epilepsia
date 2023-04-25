@@ -201,6 +201,21 @@ h2{
   color:  #646464;
 }
 
+h3{
+  margin-left: 25px;
+  margin-top: 30px;
+  color:  #646464;
+}
+
+h4{
+  margin-left: 25px;
+  margin-top: 30px;
+  color:  #646464;
+  font-size: 20;
+}
+
+
+
 .patient-card{
   width: 950px;
   height: 261px;
@@ -482,8 +497,73 @@ li{
 }
 
 .request-prediction-container{
-  height: 1008px;
-  width: 1100px;
-  margin-top:auto ;
-  background-color: red;
+  padding-top: 1px;
+  width: 950px;
+  height: 700px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  
+  border-radius: 5px;
+}
+
+
+.request-prediction-page{
+  padding:auto;
+}
+
+.exam-info{
+  display: flex;
+  width: 900px;
+  height: 70px;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+
+.exam-ul{
+  list-style: none;
+  display: flex;
+}
+
+.exam-li{
+  margin-right: 300px;
+  margin-bottom: 0px;
+  padding-top: 5px;
+}
+
+.request-prediction-buttons{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 95px;
+  margin-right: 25px;
+}
+
+
+.request-prediction-button{
+
+  
+  
+  margin-right:15px;
+  
+  width: 100px;
+  height: 45px;  
+  border-radius: 5px;
+  border: none;
+  background-color: #3F63AF;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.14) 0px 10px 16px;
+
+}
+
+.request-prediction-button:hover {background-color: #4ce6e1}
+
+.request-prediction-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

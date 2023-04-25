@@ -1,6 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ExamComponent = (props) => {
+    const navigation = useNavigate()
+
+    const state = {
+        patient:props.patient ,
+        exam:props.exam
+    }
+
+    const viewHistory = () =>{ 
+        navigation("/exam-history",{ state:state})
+    }
+
 
     let imgStyle = ""
 
@@ -19,8 +31,8 @@ const ExamComponent = (props) => {
                 <p>{props.description}</p>
             </section>
             <section className='button-section'>
-                <button className='card-button'>{props.type === "medicamentos" ? "Actualizar receta": "Actualizar examen"}</button>
-                <button className='card-button'>Ver historial</button>
+                <button  className='card-button'>{props.type === "medicamentos" ? "Actualizar receta": "Actualizar examen"}</button>
+                <button onClick={viewHistory} className='card-button'>Ver historial</button>
             </section>
 
             

@@ -5,7 +5,7 @@ const PatientCard = ({patient,context}) => {
 
     const navigation = useNavigate();
 
-    console.log(`patientcardddddd:${patient}`)
+    //console.log(`patientcardddddd:${patient}`)
 
     function ageCalculator(){
 
