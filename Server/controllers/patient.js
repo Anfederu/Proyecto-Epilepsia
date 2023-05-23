@@ -3,25 +3,28 @@ const Patient = require('../models/patient')
 
 exports.getPatients = (req,res,next) => {
 
-    Patient.fecthAll(patients => {
-        res.json(patients)
-    }) 
-
+    Patient.fecthAll()
+    .then(result => {
+        res.json(result[0])
+       })
+       .catch(err => {
+        console.log(err)
+       })
 }
 
 
-exports.getPatientByIDOrName = (req,res,next) => {
+exports.getPatientByDocumentId = (req,res,next) => {
 
-    const query = req.params.patientId
+    const id = req.params.patientId
 
-    Patient.findByIDOrName((query, patient) => {
-        res.json(patient)
-    })
-    
-}
+    Patient.findByDocumentId(id)
+    .then(result => {
+        
+        res.json(result[0])
+       })
+       .catch(err => {
+        console.log(err)
+       })
+        
 
-
-
-exports.getPatientByName = (req,res,next) => {
-    
 }

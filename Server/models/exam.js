@@ -1,4 +1,4 @@
-
+const db = require('../Utils/dataBase')
 const path = require('path')
 
 
@@ -13,23 +13,23 @@ module.exports = class Exam {
     }
 
 
-    // add patient to the db
-    save() {        
-        
+    static fetchRecentMRI(document_id){
+        return db.execute(`SELECT * FROM exams where patient_document_id = ${document_id} and type = 'MRI' ORDER BY date DESC
+        LIMIT 1`)
     }
 
-    //delete a patient form the db
-
-    static deleteById(id){
-        
+    static fetchRecentEEG(document_id){
+        return db.execute(`SELECT * FROM exams where patient_document_id = ${document_id} and type = 'EEG' ORDER BY date DESC
+        LIMIT 1`)
+    }
+    static fetchRecentANR(document_id){
+        return db.execute(`SELECT * FROM exams where patient_document_id = ${document_id} and type = 'ARN' ORDER BY date DESC
+        LIMIT 1`)
     }
 
-    static fecthAll() {
-        
-        
+    static fetchByTypeAndPatient(document_id,type){
+        return db.execute(`SELECT * FROM exams where patient_document_id = ${document_id} and type = '${type}'`)
     }
 
-    static findById(id){
-       
-    }
+    
 }

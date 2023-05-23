@@ -1,27 +1,40 @@
-import React from 'react';
-import PredictionComponent from '../Components/PredictionComponent';
-import ButtonOffset from '../Components/ButtonOffset';
-import { useLocation } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import ExamsTableComponent from "../Components/ExamTableComponent";
 
 const ExamHistory = () => {
+  const location = useLocation();
+  const patient = location.state.patient;
+  const exam = location.state.exam;
+  const [exams, setExams] = useState([]);
 
-    const location = useLocation()
-    const patient = location.state.patient
+  
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/exams/${patient.document_id}?type=${exam}`)
+      .then((res) => {
+        setExams(res.data);
+      });
+  }, []);
 
-    const exam = location.state.exam
-
-    console.log(exam)
-
-    const numbers = [1,2,3,4,5,6,7]
-    return (
-        <div>
-            <h1>Historial de examenes {exam} para el pacieente {patient.first_name}</h1>
-            {numbers.map((i)=>(<PredictionComponent/>))}
-            <ButtonOffset/>
-            
-        </div>
-    );
-}
+  return (
+    <div>
+      <h1 className="titulo-principal">
+        Historial de examenes {exam} para el pacieente {patient.first_name}{" "}
+        {patient.last_name}
+      </h1>
+      {exams.length > 0 ? (
+        <ExamsTableComponent rows={exams}/>
+      ) : (
+        <p>
+          No se encontraron exámenes MRI para el paciente {patient.first_name}{" "}
+          {patient.last_name}
+        </p>
+      )}
+       
+    </div>
+  );
+};
 
 export default ExamHistory;

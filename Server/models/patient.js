@@ -31,18 +31,18 @@ module.exports = class Patient {
     }
 
     static fecthAll() {
-    console.log(" entró al modelo")
-       db.execute('SELECT * FROM patient where id_patient < 20')
-       .then(result => {
-        console.log(result)
-       })
-       .catch(err => {
-        console.log(err)
-       })
-        
+    
+      return db.execute('SELECT * FROM patient where id_patient < 20')
+      
     }
 
-    static findByIDOrName(id, name){
+    static findByDocumentId (id) {
+        return db.execute(`SELECT * FROM patient where document_id = ${id}`)
+    }
+
+    static findByIDOrName(input){
+
+        return db.execute('SELECT * FROM patient where id_patient < 20')
        
     }
 }

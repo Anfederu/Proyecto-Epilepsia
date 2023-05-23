@@ -6,6 +6,6 @@ const patientController = require('../controllers/patient')
 
 router.get('/patients',patientController.getPatients )
 
-router.get('/patients/:patientId',patientController.getPatientByIDOrName)
+router.get('/patients/:patientId',patientController.getPatientByDocumentId)
 
 module.exports = router
