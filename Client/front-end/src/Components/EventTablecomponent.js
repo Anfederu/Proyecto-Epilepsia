@@ -1,15 +1,26 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
 
-const EventTableComponent = ({ rows }) => {
+const EventTableComponent = ({ patient }) => {
+
+  const [events, setEvents] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:4000/events/${patient.document_id}`)
+      .then((res) => {
+        setEvents(res.data);
+      });
+  }, []); 
+
   const headers = [
     "No.",
-    "Nombre",
     "Fecha",
-    "Tipo de evento",
+    "Tipo de evento",    
     "Personal",
     "Accionables",
   ];
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+  
   return (
     <div>
       <div>
@@ -22,13 +33,12 @@ const EventTableComponent = ({ rows }) => {
             </tr>
           </thead>
           <tbody>
-            {numbers.map((i) => (
+            {events.map((event,i) => (
               <tr>
                 <td>{i}</td>
-                <td>Cirujía</td>
-                <td>11/29/2022</td>
-                <td>Cirujía</td>
-                <td>Andrés Naranjo</td>
+                <td>{event.date_created}</td>
+                <td>{event.type}</td>
+                <td>{event.health_provider}</td>
                 <td>
                   <button className="event-detail-button">Ver detalle</button>
                 </td>

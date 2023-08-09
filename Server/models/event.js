@@ -1,4 +1,4 @@
-
+const db = require('../Utils/dataBase')
 const path = require('path')
 
 
@@ -14,22 +14,7 @@ module.exports = class Event {
 
 
     // add patient to the db
-    save() {        
-        
-    }
-
-    //delete a patient form the db
-
-    static deleteById(id){
-        
-    }
-
-    static fecthAll() {
-        
-        
-    }
-
-    static findById(id){
-       
+    static fetchByPatient(document_id){
+        return db.execute(`SELECT * FROM events where patient_id = "${document_id}"`)
     }
 }

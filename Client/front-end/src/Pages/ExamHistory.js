@@ -21,7 +21,7 @@ const ExamHistory = () => {
   return (
     <div>
       <h1 className="titulo-principal">
-        Historial de examenes {exam} para el pacieente {patient.first_name}{" "}
+        Historial de examenes {exam} para el paciente {patient.first_name}{" "}
         {patient.last_name}
       </h1>
       {exams.length > 0 ? (

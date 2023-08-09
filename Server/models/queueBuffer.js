@@ -1,8 +1,8 @@
 const {sendMessage} = require('../Utils/rabbit')
 module.exports = class QueueBufffer {
-    static predict(message,patient_id) {
+    static predict(message,name) {
         try{
-            sendMessage(message,patient_id)
+            sendMessage(message,name)
             return `La predicción está haciendo procesada`
         }catch( error){
             console.log("Error:",error)

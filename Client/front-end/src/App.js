@@ -8,10 +8,11 @@ import PatientDetail from "./Pages/PatientDetail"
 import AboutUs from "./Pages/AboutUs"
 import RequestPrediction from "./Pages/RequestPrediction";
 import ExamHistory from "./Pages/ExamHistory";
-import UploadExam from "./Pages/UploadExam";
+import AssociateExam from "./Pages/AssociateExam";
 import Footer from "./Components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NotFound from './Pages/NotFound'
+import NotFound from './Pages/NotFound';
+import PredictionDetail from "./Pages/PredictionDetail";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
         <Route path="/patients/:id" element={<PatientDetail/>}/>
         <Route path="/request-prediction" element={<RequestPrediction/>}/>
         <Route path="/exam-history" element={<ExamHistory/>}/>
-        <Route path="/upload-exam" element={<UploadExam/>}/>
+        <Route path="/asocciate-exam" element={<AssociateExam/>}/>
+        <Route path="/prediction-detail" element={<PredictionDetail/>}/>
 |       <Route path="*" element={<NotFound/>} />
 
         

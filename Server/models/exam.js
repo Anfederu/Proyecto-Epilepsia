@@ -13,6 +13,14 @@ module.exports = class Exam {
     }
 
 
+  /*   static createExam(patient_id, type, path, date ){
+        const id = crypto.randomBytes(16).toString("hex");
+        return db.execute(`INSERT INTO exams (exam_id, date, storage_path,type, patient_id)
+        VALUES ('${id}', '${date}', '${path}', '${type}','${patient_id}');
+        `)
+    } */
+
+
     static fetchRecentMRI(document_id){
         return db.execute(`SELECT * FROM exams where patient_document_id = ${document_id} and type = 'MRI' ORDER BY date DESC
         LIMIT 1`)

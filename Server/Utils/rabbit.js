@@ -8,7 +8,7 @@ const Prediction = require('../models/prediction')
 
 const rabbitSettings = {
     protocol: "amqp",
-    hostname: "34.125.33.241",
+    hostname: "34.125.50.123",
     port: "5672",
     username: "epilepsy_user",
     password: "ep123",
@@ -18,7 +18,7 @@ const rabbitSettings = {
 
 
 
-exports.sendMessage = async (input,patient_id) =>{
+exports.sendMessage = async (input,name) =>{
     const queueName = 'my-predictions';
     try{
         const connection = await amqp.connect(rabbitSettings);
@@ -28,7 +28,7 @@ exports.sendMessage = async (input,patient_id) =>{
         channel.sendToQueue(queueName, Buffer.from(input));
 
         console.log(" se puso en la cola los mensajes")
-        this.consumeMessage(patient_id)
+        this.consumeMessage(name)
         
         
     }catch(error){
@@ -36,9 +36,10 @@ exports.sendMessage = async (input,patient_id) =>{
     }
 }
 
- exports.consumeMessage = async (patient_id) => {
+ exports.consumeMessage = async (name) => {
     const queueAName = 'my-predictions-anws';
     let messageConsumed = ""
+    
     try{
         const connection = await amqp.connect(rabbitSettings);
         console.log("conexión creada")
@@ -47,7 +48,7 @@ exports.sendMessage = async (input,patient_id) =>{
         channel.consume(queueAName, (message) => {
             console.log('Received message:', message.content.toString());
             messageConsumed = message.content.toString()
-             onNewMessage(messageConsumed,patient_id) 
+             onNewMessage(messageConsumed,name) 
             channel.ack(message);
           });
 
@@ -59,13 +60,15 @@ exports.sendMessage = async (input,patient_id) =>{
     }
 }  
 
-const onNewMessage = (message,patient_document_id) => {
+const onNewMessage = (message,name) => {
+    console.log("entroooo")
+    console.log(name)
     const response = JSON.parse(message)
     console.log(response)
     const prediction_id = response.patient_id
     const label= response.Resultado
     
-    Notification.createNotification(`La predicción para el paciente con el número de documento ${patient_document_id} está lista`)
+    Notification.createNotification(`La predicción para el paciente ${name} está lista`)
     Prediction.updatePrediction(prediction_id, label)
 }
 

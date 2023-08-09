@@ -13,25 +13,7 @@ const PatientDetail = () => {
   const location = useLocation();
   const patient = location.state;
   const [toggleState, setToggleState] = useState(1);
-  const [events, setEvents] = useState([])
-  const [predictions, setPredictions] = useState([])
-
-/*   useEffect(() => {
-    axios
-      .get(`http://localhost:4000/events/${patient.document_id}`)
-      .then((res) => {
-        setEvents(res.data);
-      });
-  }, []); */
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:4000/predictions/${patient.document_id}`)
-      .then((res) => {
-        setPredictions(res.data);
-      });
-  }, []);
-
+  
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -39,6 +21,7 @@ const PatientDetail = () => {
   const handlePredictionRequest = () => {
     navigation("/request-prediction", { state: patient });
   };
+  
 
   return (
     <div>
@@ -65,7 +48,7 @@ const PatientDetail = () => {
 
           <h2 className="titulo-secundario">Historia clínica</h2>
           <button className="create-event-button">Registrar evento</button>
-          <EventTableComponent/>
+          <EventTableComponent patient={patient}/>
          
 
           <h2 className="titulo-secundario">Exámenes Disponibles</h2>
@@ -116,7 +99,7 @@ const PatientDetail = () => {
               type="medicamentos"
               row={2}
               exam="Medicación"
-              description="Imágenes de resonancia magnética"
+              description="Recetas médicas"
               img="/icons/drugs.png"
               patient={patient}
             />

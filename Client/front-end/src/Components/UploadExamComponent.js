@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
-import ModalSelectFile from '../Components/ModalSelectFile/ModalSelectFile';
+import ModalSelectFile from '../Components/ModalAssociateFile/ModalSelectFile';
 
 const RequestPrediction = ({ patient }) => {
   const navigation = useNavigate();
@@ -13,7 +13,7 @@ const RequestPrediction = ({ patient }) => {
 
 
   const handleFilechange = (e) => {
-    setFile(e.target.files[0]);
+    setFile(e.target.value);
     console.log(file);
   };
 
@@ -24,12 +24,12 @@ const RequestPrediction = ({ patient }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    /* const formData = new FormData();
     formData.append("file", file);
-    console.log(formData);
+    console.log(formData); */
     setUploadingState("Uploading");
     setTimeout(() => {
-      axios
+      /* axios
         .post("http://localhost:4000/upload-exam", formData)
         .then((response) => {
           console.log("File upload  succesfully");
@@ -38,7 +38,8 @@ const RequestPrediction = ({ patient }) => {
         .catch((err) => {
           setUploadingState("Error");
           console.log("Error uploading file", err);
-        });
+        }); */
+    setUploadingState("Success");
     }, 5000);
   };
   const handleCancel = () => {
@@ -54,6 +55,7 @@ const RequestPrediction = ({ patient }) => {
               Seleccione el archivo que desea asociar al paciente{patient.first_name} {patient.last_name}
             </h3>
             <ModalSelectFile/>
+            <p className="selected-file">MRI_1026597845.zip</p>
             <h3 className="titulo-terciario">Observaciones</h3>
             <textarea
               className="observations-input"
@@ -76,16 +78,18 @@ const RequestPrediction = ({ patient }) => {
           </section>
         )}
         {uploadingState === "Uploading" && (
-          <Spinner className="loading-spinner" animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
+          <h3 className="titulo-terciario-center">Cargando</h3>
         )}
         {uploadingState === "Success" && (
           <section>
-            <p>
-              Se cargó exitosamente el exámen, lo podrás ver en le historial de
+            <div className="succes-message-container">
+            <p className="titulo-terciario-center">
+              Se asoció exitosamente el exámen, lo podrás ver en le historial de
               exámenes del paciente
             </p>
+            <img className= "success-icon "src="/icons/checked.png"></img>
+            </div>
+            
             <section className="request-prediction-buttons">
               <button
                 onClick={handleCancel}

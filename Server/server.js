@@ -6,7 +6,7 @@ const patientRoutes = require('./routes/patientRoutes')
 const examsRoutes = require('./routes/examRoutes')
 const predictionRoutes = require('./routes/predictionRoutes')
 const notificationRoutes = require ('./routes/notificationRoutes')
-
+const eventsRoutes = require ('./routes/eventsRoutes')
 
 app.use(bodyParser.json());
 
@@ -20,6 +20,7 @@ app.use(patientRoutes)
 app.use(examsRoutes)
 app.use(predictionRoutes)
 app.use(notificationRoutes)
+app.use(eventsRoutes)
 
 
 app.listen(4000, () => {

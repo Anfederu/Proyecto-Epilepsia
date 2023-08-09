@@ -18,6 +18,10 @@ module.exports = class Prediction {
         return db.execute(`SELECT * FROM predictions where patient_document_id = ${document_id} ORDER BY date_requested DESC`)
     }
 
+    static fetchById(id){
+        return db.execute(`SELECT * FROM predictions where prediction_id = "${id}"`)
+    }
+
 
     static createPrediction(document_id){
         const id = crypto.randomBytes(16).toString("hex");

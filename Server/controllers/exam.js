@@ -13,6 +13,24 @@ exports.getExamByPatientAndType = (req,res,next) => {
         console.log(err)
     })
 }
+/* 
+exports.createExam = (req,res,next) => {
+
+    const patient_id = req.params.patientId
+
+    const body = req.body
+
+    const type = body.type
+
+    const path = body.path
+
+    const date = boy.date
+   
+    const response  = Exam.createExam(patient_id, type, path,date)
+
+    res.send(response)
+   
+} */
 
 
 exports.getRecentMRIByPatient = (req,res,next) => {

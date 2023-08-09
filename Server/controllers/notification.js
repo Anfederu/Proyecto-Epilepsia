@@ -3,7 +3,7 @@ const Notification = require('../models/notification')
 exports.getAllNotification = (req,res,next) => {
     Notification.fetchAllnotifications()
     .then(result =>{
-        console.log(result[0])
+        
         res.json(result[0])
     })
     .catch(err => {

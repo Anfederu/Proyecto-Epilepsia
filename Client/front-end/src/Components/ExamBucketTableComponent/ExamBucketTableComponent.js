@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from "react";
 
-const ExamBucketTableComponent = ({rows}) => {
-    const headers = ['No.','Nombre', 'Fecha','Path']
+const ExamBucketTableComponent = ({ rows, setExam, closeModal}) => {
+  const headers = ["", "Nombre", "Path", "Fecha"];
+  const [selectedExam, setSelectedExam] = useState(-1);
 
- 
-console.log(rows)
+  const handleExamSelection = (event) => {
+    setSelectedExam(event.target.value); 
+    console.log(event.target.value)
+  };
+
+  const selectExam = () => {
+    const selected = rows[selectedExam]
+    const exam = [selected]
+    setExam(exam)
+    closeModal()
+  };
+
   return (
     <div>
       <table class="styled-table-be">
@@ -16,26 +27,25 @@ console.log(rows)
           </tr>
         </thead>
         <tbody>
-       
-            
           {rows.map((row, i) => (
             <tr>
-              <td><input type="radio" value={i+1} name="exam"></input></td>
-              <td>{row.name}</td>
+              <td>
+                <input type="radio" value={i} name="exam" onChange={handleExamSelection}></input>
+              </td>
+              <td>{row.exam_id}</td>
+              <td className="file-rp">{row.storage_path}</td>
               <td>{row.date}</td>
-              <td>{row.path}</td>
             </tr>
           ))}
-          
         </tbody>
       </table>
       <section className="upload-exam-buttons">
-              <button  className="select-exam-button">
-                Seleccionar Exámen
-              </button>
-            </section>
+        <button onClick={selectExam} className="select-exam-button">
+          Seleccionar Exámen
+        </button>
+      </section>
     </div>
   );
-}
+};
 
 export default ExamBucketTableComponent;

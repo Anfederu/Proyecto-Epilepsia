@@ -14,7 +14,7 @@ const ExamComponent = (props) => {
     }
 
     const handleUploadExam = () => {
-        navigation("/upload-exam",{ state:state})
+        navigation("/asocciate-exam",{ state:state})
     }
 
 
@@ -36,6 +36,18 @@ const ExamComponent = (props) => {
         title = props.exam
     }
 
+    let actionButton = ''
+
+    if (props.type === 'EEG'||props.type === 'ARN' || props.type ==='MRI'){
+        actionButton = 'Asociar examen'
+    }else if(props.type === 'medicamentos'){
+        actionButton = 'Actualizar receta'
+    }else{
+        actionButton = 'Actualizar examen'
+    }
+
+
+
     return (
         <div className='exam-card'>
             <section className='img-section'>
@@ -46,7 +58,7 @@ const ExamComponent = (props) => {
                 <p>{props.description}</p>
             </section>
             <section className='button-section'>
-                <button onClick={handleUploadExam} className='card-button'>{props.type === "medicamentos" ? "Actualizar receta": "Asociar examen"}</button>
+                <button onClick={handleUploadExam} className='card-button'>{actionButton}</button>
                 <button onClick={handleViewHistory} className='card-button'>Ver historial</button>
             </section>
 

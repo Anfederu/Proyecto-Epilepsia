@@ -23,10 +23,11 @@ const ExamsTableComponent = ({rows }) => {
             <tr>
               <td>{i+1}</td>
               <td>{row.exam_id}</td>
+              
               <td>{row.date}</td>
               <td>
               <button className='event-detail-button'>Ver detalle</button>
-              <img className="download-icon" alt="boton-descargar" src="/icons/download.png" onClick={handleDowload}></img>
+              {/* <img className="download-icon" alt="boton-descargar" src="/icons/download.png" onClick={handleDowload}></img> */}
               </td>
             </tr>
           ))}

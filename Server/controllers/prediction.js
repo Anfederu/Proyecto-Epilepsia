@@ -18,14 +18,39 @@ exports.getPredictionByPatient = (req,res,next) => {
     })
 }
 
+exports.getPredictionById = (req,res,next) => {
+
+    const predictionId = req.params.predictionId
+    
+
+    Prediction.fetchById(predictionId)
+    .then(result => {
+        console.log(result[0])
+        res.json(result[0])
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 
 exports.predict = (req,res,next) => {
 
     const body = req.body
+
+    const patient_id = req.params.patientId
+
+    const first_name= req.query.fname
+
+    const second_name = req.query.lname
+
+    console.log(req.query.fname)
+
+    const fullName = `${first_name} ${second_name}`
     
     const message = JSON.stringify(body)
    
-    const response = QueueBufffer.predict(message)
+    const response = QueueBufffer.predict(message,fullName)
    
 
    res.send(response)

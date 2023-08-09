@@ -1,7 +1,8 @@
 import React,{useState,useEffect}from 'react';
 import axios from 'axios';
+import NotificationItem from '../NotificationItem/NotificationItem';
 
-const NotificationModal = ({ message} ) => {
+const NotificationModal = () => {
   const [notifications, setnotifications] = useState([]);
   
   useEffect(() => {
@@ -16,9 +17,9 @@ const NotificationModal = ({ message} ) => {
         <div className="notification-modal">
           <div className="notification-modal-content">
             
-          {notifications.map((notification, i) => (
-            <p>{notification.message}</p>
-          ))}
+          {notifications.length > 0? notifications.map((notification, i) => (
+            <NotificationItem notification={notification.message}/>
+          )) : <NotificationItem notification="Aún no tiene notificaciones"/>}
           </div>
         </div>
   );
